@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .header {
+        background: linear-gradient(to left, #68bbc7 0%, #213b5e 100%);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .logo {
+      border-radius: 50%;
+      border: white;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+      
+    }
+
+    .account-info {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .description {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .description img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .cv-templates { 
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    .template-section {
+      width: 30%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      
+
+    }
+
+    .cv-template img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cv-template:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(150, 0, 255, 0.7);
+    }
+
+    .info-box {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .template-section:hover .info-box {
+      opacity: 1;
+    }
+
+    .subscription-box {
+      width: 100%;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .purple-box {
+      background-color: purple;
+      color: white;
+      padding: 10px;
+    }
+
+    .subscribe-button {
+      /* Style your subscription button here */
+    }
+    .icon{
+        border-radius: 50%;
+        size: 50px;
+        height: 50px;
+        width: 50px;
+        border-color: white;
+    }
+    #leader{
+    background-color: white;
+    }
+    #logo-bar{
+        border: 10px solid aqua;
+        background-color: aqua;
+    }
+    #logo{
+        width: 40px;
+        height: 40px;
+    }
+    h1{
+        display: inline;
+    }
+    #bar{
+        border: 10px solid aqua;
+        background-color: white;
+    }
+    #title-bar{
+
+        display: inline-block;
+        width: 24%;
+    }
+    #second{
+        background-color: white;
+    }
+    #selected{
+        color: green;
+        font-size: 20px;
+    }
+    a:hover{
+        color: green;
+        font-size: 20px;
+    }
+    .nintendo-setion{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px;
+        width: 80%;
+        margin-left: 5%;
+    }
+    .nintendo-setion h1{
+        color: red;
+        margin: 0;
+    }
+    .nintendo-setion p{
+        font-family: 'Times New Roman', Times, serif;
+        margin-right: 15px;
+    }
+    .nintendo-setion img{
+        height: 300px;
+    }
+    .nintendo-first-word{
+        color: red;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .nintendo-last-word{
+        color: rgb(9, 93, 202);
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .sony-setion{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px;
+        width: 80%;
+        margin-left: 5%;
+    }
+    .sony-setion h1{
+        color:rgb(9, 93, 202) ;
+        margin: 0;
+    }
+    .sony-setion p{
+        font-family: 'Times New Roman', Times, serif;
+        margin-right: 15px;
+    }
+    .sony-setion img{
+        height: 200px;
+    }
+    .sony-first-word{
+        color:rgb(9, 93, 202) ;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .sony-last-word{
+        color: green;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .microsoft-setion{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin-left: 5%;
+        padding: 40px;
+    }
+    .microsoft-setion h1{
+        color: green;
+        margin: 0;
+    }
+    .microsoft-setion p{
+        margin-left: 15px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .microsoft-setion img{
+        height: 200px;
+    }
+    .microsoft{
+        color: green;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .name-setion{
+        border: 5px double black;
+        display: flex;
+        justify-content: space-between;
+        padding: 40px;
+        margin-left:5%;
+        width: 80%;
+    }
+    .name-setion img{
+        height: 200px;
+    }
+    .icons{
+        display: flex;
+        justify-content: space-between;
+        width: 10%;
+    }
+    .icons img{
+        height: 30px;
+        width: 30px;
+        border: 5px solid white;
+    }
+    .free{
+        border: 5px double black;
+        width: 80%;
+        margin: 5px;
+        padding: 10px;
+    }
+    .box {
+    height: 50px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px auto; /* Updated to center horizontally */
+    background-color: #282b30;
+    text-align: center;
+    }
+
+    .box p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        text-align: center;
+        color: aliceblue;
+    }
+    .premium{
+        border: 5px double purple;
+        width: 80%;
+        margin: 5px;
+        padding: 10px;
+    }
+    .premium_box{
+        height: 50px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px auto; /* Updated to center horizontally */
+    background: linear-gradient(to left, #d722d1 0%, #6f006c 100%);
+    text-align: center;
+    }
+    .premium_box p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        text-align: center;
+        color: gold;
+    }
+    .premium_box:hover{
+        transform: scale(1.1);
+        background: linear-gradient(to left, #6f006c 0%, #d722d1 100%);
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .contact-us {
+      margin-top: 10px;
+    }
+
+    .contact-us a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .contact-us a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  </style>
+  <title>CV Preparation</title>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+         <img src="icon.png" class="icon">
+         <p>CV preparation</p>
+    </div>
+    <div class="account-info"> 
+        <p>sohaib raid</p>
+        <img src="user.png" class="icon">
+    </div>
+  </header>
+  <br><br><br>
+  <div class="nintendo-setion">
+    <div>
+        <h1>Easy costumize</h1>
+        <p><samp class="nintendo-first-word">EASY TO USE</samp> Our CV builder on CV preparation makes creating your perfect CV a breeze. With its intuitive interface and user-friendly design, crafting a professional resume has never been easier. Simply follow these easy steps:
+
+            <br><br>1.Choose a Template: Browse through our collection of professionally designed CV templates. Whether you're looking for a sleek and modern layout or a more traditional design, we have the perfect template for you.
+            
+            <br><br>2.Customize Your Content: Input your personal information, work experience, education, skills, and more. Our easy-to-use editor allows you to customize every aspect of your CV to showcase your unique qualifications and achievements.
+            
+            <br><br>3.Preview and Edit: Preview your CV in real-time to see how it looks. Make any necessary edits or adjustments to ensure your resume reflects your professional brand.
+            
+            <br><br>4.Download or Share: Once you're satisfied with your CV, simply download it in PDF format or share it directly from our platform. It's that easy!
+            
+            <br><br>With our CV builder, you can create a standout resume in minutes, saving you time and hassle. Start building your CV today and take the next step in your career journey with confidence!"</samp>.
+        </p>
+    </div>
+    <img src="easy costumize.jpg">
+</div><br><br><br>
+<div class="sony-setion">
+    <div>
+        <h1>Verifies</h1>
+        <P><samp class="sony-first-word">Verifies</samp>A CV, short for Curriculum Vitae, is a document that provides a detailed summary of an individual's education, work experience, skills, achievements,
+             and other relevant information. Unlike a resume, which is typically shorter and tailored for specific job applications, a CV is more comprehensive
+              and often used in academic, research, or international settings. It serves as a comprehensive record of an individual's professional and academic accomplishments,
+               helping employers or institutions assess qualifications and suitability for positions or opportunities. <samp class="sony-last-word"></samp></P>
+    </div>
+    <img src="varify.jpg">
+</div><br><br><br>
+<div class="microsoft-setion">
+    <div>
+        <h1>Convert To PDF</h1>
+        <p><samp class="microsoft">Convert To PDF</samp>Craft your perfect CV effortlessly on CV preparation, then seamlessly convert it to a polished
+            PDF with just one click. Our intuitive builder guarantees your design stays flawless. Download and share
+             your professional CV hassle-free, empowering you to make a lasting impression in your job search journey</p>
+    </div>
+    <img src="pdf.jpg">
+</div><br><br><br>
+<section class="cv-templates">
+<div class="free">
+<div>
+    <div class="template-section">
+      <div class="cv-template">
+        <a href="pdf resume/techlaunch.html"><img src="templete1free.png" alt="CV Template 1"></a>
+        <div class="info-box">
+          <p>It's free to use this template!</p>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="box">
+<p>Free templets to use</p>
+</div>
+</div>
+<div class="premium">
+    <div class="template-section">
+      <div class="cv-template">
+        <img src="templete1 premium.png" alt="CV Template 2">
+        <div class="info-box">
+          <p>you need premium to use it</p>
+        </div>
+      </div>
+    </div>
+    <div class="premium_box">
+        <p>premium templetes</p>
+    </div>
+</div>
+</div>
+
+  </section>
+
+  <script src="script.js"></script>
+  <footer>
+    <div class="contact-us">
+      <p>Contact Us:</p>
+      <a href="tel:+1234567890">Phone</a>
+      <a href="mailto:info@example.com">Email</a>
+      <a href="https://www.example.com/contact">Online Form</a>
+    </div>
+  </footer>
+</body>
+</html>
