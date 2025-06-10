@@ -27,6 +27,7 @@ This is an **Simple website for creating CV** that let you choose the CV templet
 ## 📖 Description
 
 This project is demo for creating a CV pdf with your data you can use it and modify it or complete it.
+I made this ptoject in a 3-day Hackathon so i didn't have the time to code the backend but i see it as a beutiful work for 3-days.
 
 ---
 
